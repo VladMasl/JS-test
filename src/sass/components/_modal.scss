@@ -1,0 +1,234 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+
+  transition: opacity 500ms linear, visibility 500ms linear;
+
+  &.is-hidden {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &.is-hidden .modal {
+    transform: translate(-50%, -50%) scale(0) rotate(90deg);
+  }
+}
+
+.modal {
+  @media screen and (max-width: 1200px) {
+    max-width: 450px;
+  }
+  @media screen and (min-width: 375px) and (max-width: 479px) {
+    top: 55%;
+    width: 365px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  @media screen and (max-width: 374.98px) {
+    width: 300px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+  }
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+  padding: 40px;
+  width: 528px;
+  border-radius: 4px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  background-color: $primary-Wcolor;
+
+  transform: translate(-50%, -50%);
+  transition: transform $transition linear;
+
+  &__close {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+    margin: 8px;
+    width: 30px;
+    height: 30px;
+    box-sizing: inherit;
+    border-radius: 50%;
+    background-color: transparent;
+
+    border: none;
+
+    transition-property: fill, border;
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+      transform: rotate(-360deg);
+      border: 1px solid$accent-color;
+      fill: $accent-color;
+    }
+  }
+
+  &__sign {
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.form {
+  @media screen and (max-width: 1200px) {
+    width: 370px;
+    height: 345px;
+  }
+  @media screen and (min-width: 375px) and (max-width: 479px) {
+    width: 345px;
+  }
+
+  @media screen and (max-width: 374.98px) {
+    width: 270px;
+  }
+
+  width: 448px;
+  height: 342px;
+
+  &__field {
+    @media screen and (max-width: 1200px) {
+      width: 370px;
+    }
+    @media screen and (min-width: 375px) and (max-width: 479px) {
+      width: 345px;
+    }
+    @media screen and (max-width: 374.98px) {
+      width: 270px;
+    }
+
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+    & textarea {
+      resize: none;
+      height: 120px;
+      padding: 12px 16px;
+      border: 1px solid rgba(33, 33, 33, 0.2);
+      border-radius: 4px;
+      background-color: bisque;
+      transition-property: border;
+      transition-duration: $transition;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:focus {
+        outline: 0;
+        outline-offset: 0;
+      }
+    }
+
+    & textarea:focus,
+    & textarea:hover {
+      border: 1px solid $accent-color;
+    }
+
+    & ::placeholder {
+      color: rgba(117, 117, 117, 0.5);
+    }
+  }
+
+  &__label {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.16;
+    margin-bottom: 4px;
+    letter-spacing: 0.01em;
+  }
+
+  &__input {
+    @media screen and (max-width: 1200px) {
+      width: 370px;
+    }
+
+    @media screen and (min-width: 375px) and (max-width: 479px) {
+      width: 345px;
+    }
+
+    @media screen and (max-width: 374.98px) {
+      width: 270px;
+    }
+
+    padding: 12px 42px;
+    height: 40px;
+    border: 1px solid rgba(33, 33, 33, 0.2);
+    border-radius: 4px;
+
+    transition-property: border;
+    transition-duration: $transition;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    &:focus {
+      outline: 0;
+      outline-offset: 0;
+    }
+
+    .form__field &:focus,
+    .form__field &:hover {
+      border: 3px solid $accent-color;
+    }
+  }
+
+  &__icons {
+    position: absolute;
+    top: 29px;
+    left: 12px;
+
+    transition-property: fill;
+    transition-duration: $transition;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+    .form__input:focus + & {
+      fill: $accent-color;
+    }
+  }
+}
+
+.modal__button {
+  display: block;
+  border: none;
+  box-sizing: border-box;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.06em;
+  align-items: center;
+  text-align: center;
+
+  margin: 50px auto 0;
+
+  border-radius: 4px;
+  border: none;
+  padding: 6px 22px;
+  cursor: pointer;
+  width: 250px;
+  height: 100px;
+  color: $primary-Wcolor;
+  background-color: $accent-color;
+
+  transition-property: background-color box-shadow;
+  transition-duration: $transition;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover {
+    background-color: rgb(255, 81, 0);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+}

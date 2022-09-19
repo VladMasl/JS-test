@@ -1,0 +1,58 @@
+$primary-Tcolor: rgba(117, 117, 117, 1);
+$title-Tcolor: rgba(33, 33, 33, 1);
+$accent-color: rgb(255, 196, 1);
+$primary-Wcolor: #f0e5b7;
+$transition: 250ms;
+
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+ul,
+li,
+a {
+  
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.dec-non {
+  text-decoration: none;
+}
+
+
+body {
+  @media screen and (max-width: 767px) {
+    padding-top: 60px;
+  }
+  padding-top: 80px;
+  background-color: $primary-Wcolor;
+  color: $primary-Tcolor;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+
+
+
+
+
+

@@ -1,14 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
-  </head>
-  <body>
-    <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/1.1.0/modern-normalize.min.css" />
+  <link rel="stylesheet" href="./sass/index.scss" />
+</head>
+
+<body>
+
+  <button type="button" class="butn-open" data-modal-open>
+    Open Form
+  </button>
+
+  <!-- валідацію інпутів на заповнення зробив за допомогою JS, можна використати: атрибут required(позначає поле форми як обов'язкове для заповнення ) -->
+  
+  <div class="backdrop is-hidden" data-modal>
+    <div class="modal">
+      <button type="button" class="modal__close" data-modal-close>
+        <svg width="18px" height="18px">
+          <use href="./images/icons.svg.svg#icon-buttonx"></use>
+        </svg>
+      </button>
+      <div class="modal__sign">
+        <form class="form" autocomplete="off">
+          <div class="form__field">
+            <label for="name" class="form__label">User Name</label>
+
+            <input type="text" placeholder="Bart" pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+              class="form__input" name="name" id="name" />
+
+            <svg class="form__icons" width="18px" height="18px">
+              <use href="./images/icons.svg.svg#icon-person"></use>
+            </svg>
+          </div>
+          <div class="form__field">
+            <label for="email" class="form__label">Email</label>
+            <input type="email" placeholder="bart@email.com" class="form__input" name="email" id="email" />
+            <svg class="form__icons" width="18px" height="18px">
+              <use href="./images/icons.svg.svg#icon-email"></use>
+            </svg>
+          </div>
+          <div class="form__field">
+            <label for="tel" class="form__label">Phone</label>
+            <input type="tel" placeholder="0040820927" pattern="\+?\d{1,12}" class="form__input" name="tel" id="tel" />
+            <svg class="form__icons" width="18px" height="18px">
+              <use href="./images/icons.svg.svg#icon-phone"></use>
+            </svg>
+          </div>
+
+          <button type="submit" class="modal__button">Send</button>
+
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="index.js"></script>
+</body>
+
 </html>
